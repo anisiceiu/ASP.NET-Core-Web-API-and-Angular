@@ -1,0 +1,250 @@
+﻿<span class="container-css">
+    <meta charset="utf-8">
+    <style type="text/css">
+        .template-body {
+            font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+            font-size: 15px;
+            margin: 50px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            width: 50%;
+        }
+
+        .tbl-2Cols-50 {
+            width: 50% !important;
+        }
+
+        .tbl-1Col-100 {
+            width: 100% !important;
+        }
+
+        .tbl-2Col-70 {
+            width: 70%;
+        }
+
+        .tbl-2Col-30 {
+            width: 30%;
+        }
+
+        .left {
+            text-align: left !important;
+        }
+
+        .right {
+            text-align: right !important;
+        }
+
+        .center {
+            text-align: center !important;
+        }
+
+        .table_bordered {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+            .table_bordered td {
+                border-top: thin solid;
+                border-bottom: thin solid;
+            }
+
+                .table_bordered td:first-child {
+                    border-left: thin solid;
+                }
+
+            .table_bordered td {
+                border-right: thin solid;
+            }
+
+                .table_bordered td:last-child {
+                    border-right: thin solid;
+                }
+
+        .text_medium {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .text_small {
+            font-size: 14px;
+        }
+    </style>
+    </span>
+    <span class="readonly-template-dom" style="display:block" ng-include="'app/Components/WebOrderPDFTemplate/ReadonlyTemplates/readonlyReceiptTemplate_jp.html'"></span>
+
+<table style="width: 100%;">
+    <tr style="text-align: center;">
+        <td style="font-size:36px;" class="tbl-1Col-100"><b>領 収 書</b></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td>&nbsp;</td>
+        <td class="right" style="font-size:16px; font-weight:bold;">{{$ctrl.CurrentDate}}</td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td class="left text_medium"><input type="text" ng-model="$ctrl.weborder.CompanyTelephoneNo" /></td>
+        <td class="">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="left text_medium"> <input type="text" ng-model="$ctrl.weborder.CompanyAddress1" /></td>
+        <td class="">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="left"><input type="text" ng-model="$ctrl.weborder.CompanyAddress2" /></td>
+        <td class="">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="left"><input type="text" ng-model="$ctrl.weborder.CompanyLocalName" /></td>
+        <td class="">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="left"> <inupt type="text" ng-model="$ctrl.weborder.CompanyGlobalName" /></td>
+        <td class="right text_medium">{{$ctrl.obj.Company}}</td>
+    </tr>
+
+    <tr>
+        <td class="left">&nbsp;</td>
+        <td class="right text_medium">{{$ctrl.obj.BranchCompany}}</td>
+    </tr>
+    <tr>
+        <td class="left">&nbsp;</td>
+        <td class="right" style="font-size:14px;">{{$ctrl.obj.UserAddress}}{{$ctrl.obj.UserPostCode}}</td>
+    </tr>
+    <tr>
+        <td class="left">&nbsp;</td>
+        <td class="right text_small"> {{$ctrl.obj.Contact}}</td>
+    </tr>
+    <tr>
+        <td class="left">&nbsp;</td>
+        <td class="right text_small"> {{$ctrl.obj.Email}}</td>
+    </tr>
+</table>
+
+<table>
+    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+
+
+<table>
+    <tr>
+        <td class="text_small">次回も何卒御用命くださいますよう、お願い申し上げます!</td>
+    </tr>
+</table>
+
+<table>
+    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+
+
+
+
+<table style="border-collapse: collapse;">
+    <tr style="border-top: 2px solid #000;">
+        <td>&nbsp;</td>
+    </tr>
+</table>
+
+<table>
+    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+
+<table>
+    <tr>
+        <td class="text_medium">領収書</td>
+    </tr>
+</table>
+
+<table style="text-align:center;">
+    <tr>
+        <td class="text_medium"><p style="text-decoration:underline; margin:0">{{$ctrl.obj.Company}}</p></td>
+    </tr>
+    <tr>
+        <td style="padding:0 100px;">
+            <p style="font-size:40px; font-weight:bold; margin:0; border-bottom:3px solid #000;">{{$ctrl.weborder.CurrencyCode}} {{$ctrl.TotalEstimatedPrice |number:0}}</p>
+        </td>
+    </tr>
+</table>
+
+<table class="text_small" style="padding:0 100px;">
+    <tr>
+        <td style="padding-top:10px;">翻訳料金</td>
+    </tr>
+    <tr>
+        <td>{{$ctrl.details[0].Remarks}}</td>
+    </tr>
+    <tr>
+        <td>Paid Date：{{$ctrl.weborder.PaymentDate}}</td>
+    </tr>
+</table>
+
+<table>
+    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+
+
+<table class="text_small right" style="padding:0 100px;">
+    <tr>
+        <td>&nbsp;</td>
+        <td> <input type="text" ng-model="$ctrl.obj.Company" /></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td> <input type="text" ng-model="$ctrl.obj.BranchCompany" /></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td> <input type="text" ng-model="$ctrl.obj.UserPostCode" /></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td> <input type="text" ng-model="$ctrl.obj.UserAddress" /></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td> <input type="text" ng-model="$ctrl.obj.Contact" /></td>
+    </tr>
+</table>
+
+
+<table style="width: 100%;">
+    <tbody>
+        <tr style="text-align: center;">
+            <td style="font-size:40px; letter-spacing: 3px; text-transform:uppercase;" class="tbl-1Col-100"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<table>
+    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+</table>
+
+<div class="modal-footer">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <button id="btnClose" type="button" class="btn btn-danger" ng-click="$ctrl.Close()">閉じる</button>
+        <input type="button" id="btnSave" class="btn btn-primary" ng-click="$ctrl.downloadPdfTemplate()" value="PDFダウンロード" />
+    </div>
+</div>
+
+
+
+

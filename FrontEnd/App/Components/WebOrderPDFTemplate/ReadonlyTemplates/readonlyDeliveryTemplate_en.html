@@ -1,0 +1,191 @@
+﻿<div class="template-body">
+    <table style="width: 100%;">
+        <tbody>
+            <tr style="text-align: center;">
+                <td style="font-size:30px;" class="tbl-1Col-100"><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Delivery Notice</font></font></b></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <tbody>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="right"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $ctrl.CurrentDate | date:'yyyy-MM-dd'}}</font></font></td>
+            </tr>
+        </tbody>
+    </table>
+ 
+    <table>
+        <tbody>
+            <tr>
+                <td class="left"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.CompanyTelephoneNo}}</font></font></td>
+                <td class="">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="left"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.CompanyAddress1}}</font></font></span></td>
+                <td class="">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="left" style="font-weight:bold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.CompanyLocalName}}</font></font></td>
+                <td class="">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="left" style="font-weight:bold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.CompanyGlobalName}}</font></font></td>
+                <td class="right" style="font-weight:bold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.obj.Company}}</font></font></td>
+            </tr>
+
+            <tr>
+                <td class="left">&nbsp;</td>
+                <td class="right" style="font-weight:bold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.obj.BranchCompany}}</font></font></td>
+            </tr>
+            <tr>
+                <td class="left">&nbsp;</td>
+                <td class="right" style="font-size:14px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.obj.UserAddress}} {{$ctrl.obj.UserPostCode}}</font></font></td>
+            </tr>
+            <tr>
+                <td class="left">&nbsp;</td>
+                <td class="right" style="font-size:14px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.obj.Contact}}</font></font></td>
+            </tr>
+            <tr>
+                <td class="left">&nbsp;</td>
+                <td class="right" style="font-size:14px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.obj.Email}}</font></font></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table ng-if="$ctrl.weborder.IsSeal">
+        <tr>
+            <td>&nbsp;</td>
+            <td><img style="float: right; margin-right: 50px; margin-top: -180px;" src="{{$ctrl.StampURL}}" alt="" /></td>
+        </tr>
+    </table>
+
+    <table>
+        <tbody>
+            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        </tbody>
+    </table>
+
+    <table style="border-collapse: collapse; font-size:14px;">
+        <tbody>
+            <tr>
+                <td class="left"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thank you very much for using our service this time.</font></font></td>
+            </tr>
+            <tr>
+                <td class="left"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">We will charge your request as below.</font></font></td>
+            </tr>
+            <tr>
+                <td class="left"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">I would like to ask for your continued support next time, thank you.</font></font></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table style="border-collapse: collapse;">
+        <tbody>
+            <tr style="border-bottom: 3px solid #000; border-top: 1px solid #000;">
+                <td class="left" style="padding:3px 0;"><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Delivery date: {{$ctrl.weborder.DeliveryDate | date:'yyyy/MM/dd hh:mm:ss a'}}</font></font></b></td>
+                <td class="right" style="padding:3px 0;"><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estimation No: {{$ctrl.weborder.OrderNo}}</font></font></b></td>
+            </tr>
+            <tr style="border-bottom: 3px solid #000;">
+                <td class="left;" style="padding:3px 0;"><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Total price {{$ctrl.weborder.CurrencyCode}} {{$ctrl.TotalEstimatedPrice |number:2}}</font></font></b></td>
+                <td class="right" style="padding:3px 0;"><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Payment date: {{$ctrl.weborder.PaymentDate}}</font></font></b></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table_bordered">
+        <thead>
+            <tr style="font-weight:bold;">
+                <td class="tbl-2Col-70 center"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Description</font></font></td>
+                <td class="tbl-2Col-30 center"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Amount</font></font></td>
+            </tr>
+        </thead>
+
+        <tbody ng-repeat="item in $ctrl.details track by $index">
+            <tr>
+                <td class="tbl-2Col-70"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{item.Remarks}}</font></font></td>
+                <td class="tbl-2Col-30 right"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.CurrencyCode}} {{item.AmountOfMoney}}</font></font></td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td class="tbl-2Col-70"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Consumption Tax</font></font></td>
+                <td class="tbl-2Col-30 right"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.CurrencyCode}} {{ $ctrl.TotalConsumptionTax}}</font></font></td>
+            </tr>
+            <tr style="font-weight:bold;">
+                <td class="tbl-2Col-70"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Total</font></font></td>
+                <td class="tbl-2Col-30 right"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.CurrencyCode}} {{$ctrl.TotalEstimatedPrice |number:2}}</font></font></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <table style="border-collapse: collapse;">
+        <tbody>
+            <tr style="border-bottom: 3px solid #000;">
+                <td>&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table style="border-collapse: collapse;">
+        <tbody>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="padding:3px 0;"><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Terms and Conditions:</font></font></b></td>
+            </tr>
+            <tr>
+                <td style="padding:3px 0;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">* {{$ctrl.obj.Remarks1}}</font></font></td>
+            </tr>
+            <tr>
+                <td style="padding:3px 0;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">* {{$ctrl.obj.Remarks2}}</font></font></td>
+            </tr>
+            <tr>
+                <td style="padding:3px 0;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">※ {{$ctrl.obj.Remarks3}}</font></font></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <tbody>
+            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        </tbody>
+    </table>
+
+    <table style="text-align:center; font-size:14px;">
+        <tbody>
+            <tr>
+                <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">We are supporting International Business and Multicultural Communication</font></font></td>
+            </tr>
+            <tr>
+                <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">We will make full use of the foreign resident 's network and support overseas business and international exchange.</font></font></td>
+            </tr>
+            <tr>
+                <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Native translators of cloud-type online translation translating pro (trans-Pro.) 15 languages, 24, 677 correspond</font></font></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

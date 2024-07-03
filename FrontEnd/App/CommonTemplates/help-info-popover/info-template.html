@@ -1,0 +1,36 @@
+﻿<script type="text/ng-template" id="myPopoverTemplate.html">
+    <div style="min-height:max-content" ng-controller="helpInfoPopoverController" class="">
+
+        <div style="min-height:max-content" class="">
+            <div style="min-height:max-content" class="form-group">
+                <textarea ng-change="fitContentSize()" ng-keydown="fitContentSize()" id="{{txtId}}" class="resizeNone form-control" rows="11" ng-model="HelpContent" ng-disabled="IsDisable"
+                          style="resize:vertical;margin-bottom:5px;height:auto;overflow-y:visible"></textarea>
+            </div>
+
+            <div class="row mb7">
+                <div style="margin-top:5px">
+                    <div ng-if="IsEditable">
+                        <div class="col-sm-2">
+                            <!--<input type="button" value="{{'EDIT'|translator}}" ng-click="Edit()" class="btn btn-primary btn-xs" />-->
+                            <button type="button" ng-click="Edit()" class="btn btn-primary btn-xs">{{'EDIT'|translator}}</button>
+                        </div>
+                        <div class="col-sm-2">
+
+                            <!--<input type="button" value="{{'SAVE'|translator}}" ng-click="Save()" class="btn btn-primary btn-xs" />-->
+                            <button type="button"  ng-click="Save()" class="btn btn-primary btn-xs">{{'SAVE'|translator}}</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="button" class="btn btn-danger btn-xs" style="margin-left:11px;" ng-click="Close(helpData.SubCode)">{{'CLOSE'|translator}}</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</script>

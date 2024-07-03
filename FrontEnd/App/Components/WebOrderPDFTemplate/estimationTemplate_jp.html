@@ -1,0 +1,313 @@
+﻿
+<style>
+    .template-form-horizontal {
+        height: 900px;
+        overflow: scroll;
+    }
+</style>
+
+<span class="container-css">
+    <meta charset="utf-8">
+    <style type="text/css">
+        .template-body {
+            font-family: 'MS Mincho';
+            font: "10pt 'MS Mincho'";
+            margin: 50px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            width: 50%;
+        }
+
+        .tbl-2Cols-50 {
+            width: 50% !important;
+        }
+
+        .tbl-1Col-100 {
+            width: 100% !important;
+        }
+
+        .tbl-2Col-70 {
+            width: 70%;
+        }
+
+        .tbl-2Col-30 {
+            width: 30%;
+        }
+
+        .left {
+            text-align: left !important;
+        }
+
+        .right {
+            text-align: right !important;
+        }
+
+        .center {
+            text-align: center !important;
+        }
+
+        .table_bordered {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+            .table_bordered td {
+                border-top: thin solid;
+                border-bottom: thin solid;
+            }
+
+                .table_bordered td:first-child {
+                    border-left: thin solid;
+                }
+
+            .table_bordered td {
+                border-right: thin solid;
+            }
+
+                .table_bordered td:last-child {
+                    border-right: thin solid;
+                }
+    </style>
+</span>
+
+<span class="readonly-template-dom" style="display:block" ng-include="'app/Components/WebOrderPDFTemplate/ReadonlyTemplates/readonlyEstimationTemplate_jp.html'"></span>
+
+<div class="modal-content input-template-interface">
+    <div class="modal-header">
+        <button type="button" class="fa fa-close pull-right" ng-click="$ctrl.Close()"></button>
+        <h4 class="modal-title" align="center">{{$ctrl.title}}</h4>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal template-form-horizontal" name="templateForm">
+            <table style="width: 100%;">
+                <tbody>
+                    <tr style="text-align: center;">
+                        <td style="font-size:30px;" class="tbl-1Col-100"><b><font style="vertical-align: inherit;"><input type="text" placeholder="{{'TITLE'|translator}}" ng-model="$ctrl.obj.Title"></font></b></td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td class="right"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.CurrentDate}}</font></font></td>
+                    </tr>
+                </tbody>
+            </table>
+           
+            <table>
+                <tbody>
+                    <!--<tr>
+                        <td class="left"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.CompanyTelephoneNo}}</font></font></td>
+                        <td class="">&nbsp;</td>
+                    </tr>-->
+                    <tr>
+                        <td class="left"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <input type="text" style="width:175px;" placeholder="〒" ng-model="$ctrl.weborder.ClientPostCode" /> </font></font></span></td>
+                        <td class="">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="left"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <input type="text" style="width:175px;" placeholder="企 業 住 所" ng-model="$ctrl.weborder.CompanyAddress1" /> </font></font></span></td>
+                        <td class="">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="left" style="font-weight:bold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <input type="text" placeholder="企 業 名" ng-model="$ctrl.weborder.ClientName" /> </font></font></td>
+                        <td class="">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="left" style="font-weight:bold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.CompanyLocalName}}</font></font></td>
+                        <td class="">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="">&nbsp;</td>
+                        <!--<td class="left" style="font-weight:bold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.CompanyGlobalName}}</font></font></td>-->
+                        <td class="right" style="font-weight:bold"><font style="vertical-align: inherit;"><input type="text" ng-model="$ctrl.obj.Company" /></font></td>
+                    </tr>
+
+                    <tr>
+                        <td class="left">&nbsp;</td>
+                        <td class="right" style="font-weight:bold"><font style="vertical-align: inherit;"><input type="text"  ng-model="$ctrl.obj.BranchCompany" /></font></td>
+                    </tr>
+                    <tr>
+                        <td class="left">&nbsp;</td>
+                        <td class="right" style="font-size:14px;"><font style="vertical-align: inherit;"><input type="text" style="width:175px;" ng-model="$ctrl.obj.UserPostCode" /></font></td>
+                    </tr>
+                    <tr>
+                        <td class="left">&nbsp;</td>
+                        <td class="right" style="font-size:14px;"><font style="vertical-align: inherit;"><input type="text" style="width:175px;"  placeholder="差出人住所" ng-model="$ctrl.obj.UserAddress" /></font></td>
+                    </tr>
+                    <tr>
+                        <td class="left">&nbsp;</td>
+                        <td class="right" style="font-size:14px;"><font style="vertical-align: inherit;"><input type="text" style="width:175px;" placeholder="電話番号" ng-model="$ctrl.obj.Contact" /></font></td>
+                    </tr>
+                    <tr>
+                        <td class="left">&nbsp;</td>
+                        <td class="right" style="font-size:14px;"><font style="vertical-align: inherit;"><input type="text" style="width:175px;" placeholder="ﾒｰﾙ" ng-model="$ctrl.obj.Email" /></font></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--<table ng-if="$ctrl.weborder.IsSeal">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><img style="float: right; margin-right: 50px; margin-top: -180px;" src="{{$ctrl.StampURL}}" alt="" /></td>
+                </tr>
+            </table>-->
+
+            <table>
+                <tbody>
+                    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+                </tbody>
+            </table>
+
+
+            <table style="border-collapse: collapse; font-size:14px;">
+                <tbody>
+                    <tr>
+                        <td class="left"><font style="vertical-align: inherit;"><input type="text" class="form-control" ng-model="$ctrl.obj.Greeting1"/></font></td>
+                    </tr>
+                    <tr>
+                        <td class="left"><font style="vertical-align: inherit;"><input type="text" class="form-control" ng-model="$ctrl.obj.Greeting2"/></font></td>
+                    </tr>
+                    <tr>
+                        <td class="left"><font style="vertical-align: inherit;"><input type="text" class="form-control" ng-model="$ctrl.obj.Greeting3"/></font></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table style="border-collapse: collapse;">
+                <tbody>
+                    <tr style="border-bottom: 3px solid #000; border-top: 1px solid #000;">
+                        <td>&nbsp;</td>
+                        <!--<td class="left" style="padding:3px 0;"><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Delivery date: {{$ctrl.weborder.DeliveryDate | date:'yyyy/MM/dd hh:mm:ss a'}}</font></font></b></td>-->
+                        <td class="right" style="padding:3px 0;"><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">案件 NO:{{$ctrl.weborder.OrderNo}}</font></font></b></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #000;">
+                        <td class="left;" style="padding:3px 0;"><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">合 計 金 額 {{$ctrl.weborder.CurrencySymbol}} {{$ctrl.TotalEstimatedPrice |number:0}}</font></font></b></td>
+                        <!--<td class="right" style="padding:3px 0;"><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Payment date: {{$ctrl.weborder.PaymentDate}}</font></font></b></td>-->
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table_bordered">
+                <thead>
+                    <tr style="font-weight:bold;">
+                        <td class="tbl-2Col-70 center"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">摘&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;要</font></font></td>
+                        <td class="tbl-2Col-30 center"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">金&nbsp;&nbsp;&nbsp;  額</font></font></td>
+                    </tr>
+                </thead>
+
+                <tbody ng-repeat="item in $ctrl.details track by $index">
+                    <tr>
+                        <td class="tbl-2Col-70"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{item.Remarks}}</font></font></td>
+                        <td class="tbl-2Col-30 right"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.CurrencySymbol}} {{item.AmountOfMoney |number:0}}</font></font></td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="tbl-2Col-70"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">消&nbsp;費&nbsp;税</font></font></td>
+                        <td class="tbl-2Col-30 right"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.CurrencySymbol}} {{ $ctrl.TotalConsumptionTax |number:0}}</font></font></td>
+                    </tr>
+                    <tr style="font-weight:bold;">
+                        <td class="tbl-2Col-70"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">合&nbsp;&nbsp;&nbsp;計</font></font></td>
+                        <td class="tbl-2Col-30 right"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.CurrencySymbol}} {{$ctrl.TotalEstimatedPrice |number:0}}</font></font></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <table style="border-collapse: collapse;">
+                <tbody>
+                    <tr style="border-bottom: 3px solid #000;">
+                        <td>&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table style="border-collapse: collapse;">
+                <tbody>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:3px 0;"><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">備 考:</font></font></b></td>
+                    </tr>
+                    <tr>
+                        <td style="padding:3px 0;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">* <input type="text" ng-model="$ctrl.obj.Remarks1" /></font></font></td>
+                    </tr>
+                    <tr>
+                        <td style="padding:3px 0;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">* <input type="text" ng-model="$ctrl.obj.Remarks2" /></font></font></td>
+                    </tr>
+                    <tr>
+                        <td style="padding:3px 0;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">* <input type="text" ng-model="$ctrl.obj.Remarks3" /></font></font></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table>
+                <tbody>
+                    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+                    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+                </tbody>
+            </table>
+
+            <table style="text-align:center; font-size:14px;">
+                <tbody>
+                    <tr>
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> <input type="text" placeholder="Conclusion1" class="form-control" ng-model="$ctrl.obj.Conclusion1" /></font></font></td>
+                    </tr>
+                    <tr>
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input type="text" placeholder="Conclusion2" class="form-control" ng-model="$ctrl.obj.Conclusion2" /></font></font></td>
+                    </tr>
+                    <tr>
+                        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input type="text" placeholder="Conclusion3" class="form-control" ng-model="$ctrl.obj.Conclusion3" /></font></font></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <button id="btnClose" type="button" class="btn btn-danger" ng-click="$ctrl.Close()">閉じる</button>
+                    <input type="button" id="btnSave" class="btn btn-primary" ng-click="$ctrl.downloadPdfTemplate()" value="PDFダウンロード" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

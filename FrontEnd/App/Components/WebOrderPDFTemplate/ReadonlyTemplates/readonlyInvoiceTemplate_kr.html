@@ -1,0 +1,237 @@
+﻿<div class="template-body">
+    <table style="width: 100%;">
+        <tbody>
+            <tr style="text-align: center;">
+                <td style="font-size:30px;" class="tbl-1Col-100"><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">송장</font></font></b></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <tbody>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="right"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ $ctrl.CurrentDate | date:'yyyy-MM-dd'}}</font></font></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <table>
+        <tbody>
+            <tr>
+                <td class="left"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.PostalCode}}</font></font></td>
+                <td class="">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="left"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.CompanyAddress1}}</font></font></span></td>
+                <td class="">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="left" style="font-weight:bold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.CompanyLocalName}}</font></font></td>
+                <td class="">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="left" style="font-weight:bold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.CompanyPicName}}</font></font></td>
+                <td class="right" style="font-weight:bold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.obj.Company}}</font></font></td>
+            </tr>
+
+            <tr>
+                <td class="left">&nbsp;</td>
+                <td class="right" style="font-weight:bold"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.obj.BranchCompany}}</font></font></td>
+            </tr>
+       
+            <tr>
+                <td class="left">&nbsp;</td>
+                <td class="right" style="font-size:14px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.obj.UserAddress}}{{$ctrl.obj.UserPostCode}}</font></font></td>
+            </tr>
+            <tr>
+                <td class="left">&nbsp;</td>
+                <td class="right" style="font-size:14px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.obj.Contact}}</font></font></td>
+            </tr>
+            <tr>
+                <td class="left">&nbsp;</td>
+                <td class="right" style="font-size:14px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.obj.Email}}</font></font></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table ng-if="$ctrl.weborder.IsSeal">
+        <tr>
+            <td>&nbsp;</td>
+            <td><img style="float: right; margin-right: 50px; margin-top: -180px;" src="{{$ctrl.StampURL}}" alt="" /></td>
+        </tr>
+    </table>
+
+    <table>
+        <tbody>
+            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        </tbody>
+    </table>
+
+    <table style="border-collapse: collapse; font-size:14px;">
+        <tbody>
+            <tr>
+                <td class="left"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thank you very much for using our service this time.</font></font></td>
+            </tr>
+            <tr>
+                <td class="left"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">We will charge your request as below.</font></font></td>
+            </tr>
+            <tr>
+                <td class="left"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">I would like to ask for your continued support next time, thank you.</font></font></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table style="border-collapse: collapse;">
+        <tbody>
+            <tr style="border-bottom: 3px solid #000; border-top: 1px solid #000;">
+                <!--<td class="left" style="padding:3px 0;"><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Delivery date: {{$ctrl.weborder.DeliveryDate | date:'yyyy/MM/dd hh:mm:ss a'}}</font></font></b></td>-->
+                <td class="right" style="padding:3px 0;"><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">주문 NO: {{$ctrl.weborder.OrderNo}}</font></font></b></td>
+            </tr>
+            <tr style="border-bottom: 3px solid #000;">
+                <td class="left;" style="padding:3px 0;"><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">총 가격 {{$ctrl.weborder.CurrencyCode}} {{$ctrl.TotalEstimatedPrice |number:2}}</font></font></b></td>
+                <!--<td class="right" style="padding:3px 0;"><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">지불 날짜: {{$ctrl.weborder.PaymentDate}}</font></font></b></td>-->
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table_bordered">
+        <thead>
+            <tr style="font-weight:bold;">
+                <td class="tbl-2Col-70 center"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">비고</font></font></td>
+                <td class="tbl-2Col-30 center"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">양</font></font></td>
+            </tr>
+        </thead>
+
+        <tbody ng-repeat="item in $ctrl.details track by $index">
+            <tr>
+                <td class="tbl-2Col-70"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{item.Remarks}}</font></font></td>
+                <td class="tbl-2Col-30 right"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.CurrencyCode}} {{item.AmountOfMoney}}</font></font></td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td class="tbl-2Col-70"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">소비세</font></font></td>
+                <td class="tbl-2Col-30 right"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.CurrencyCode}} {{ $ctrl.TotalConsumptionTax}}</font></font></td>
+            </tr>
+            <tr style="font-weight:bold;">
+                <td class="tbl-2Col-70"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">합계</font></font></td>
+                <td class="tbl-2Col-30 right"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.weborder.CurrencyCode}} {{$ctrl.TotalEstimatedPrice |number:2}}</font></font></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <table style="border-collapse: collapse;">
+        <tbody>
+            <tr style="border-bottom: 3px solid #000;">
+                <td>&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table style="border-collapse: collapse;">
+        <tbody>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="padding:3px 0;"><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">비고:</font></font></b></td>
+            </tr>
+            <tr>
+                <td style="padding:3px 0;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">* {{$ctrl.obj.Remarks1}}</font></font></td>
+            </tr>
+            <tr>
+                <td style="padding:3px 0;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">* {{$ctrl.obj.Remarks2}}</font></font></td>
+            </tr>
+            <tr>
+                <td style="padding:3px 0;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">* {{$ctrl.obj.Remarks3}}</font></font></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <table style="border-collapse: collapse;">
+        <tbody>
+            <tr>
+                <td style="width:15%;"></td>
+                <td style="border:1px solid #000; width:70%; text-align:center; padding:10px; line-height:20px;">
+                    <b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">노트:</font></font></b><br><font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">
+                            은행 이름: {{$ctrl.weborder.CompanyBankName}}
+                        </font>
+                    </font><br><font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">
+                            지점명: {{$ctrl.weborder.CompanyBankBranchName}}
+                        </font>
+                    </font><br>
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">
+                            계정 유형: {{$ctrl.weborder.CompanyBankAccountType}}
+                        </font>
+                    </font><br>
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">
+                            계좌 번호: {{$ctrl.weborder.CompanyBankAccountNo}}
+                        </font>
+                    </font><br>
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">
+                            계정 이름: {{$ctrl.weborder.CompanyBankAccountHolderName}}
+                        </font>
+                    </font><br>
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">
+                            신속한 코드: {{$ctrl.weborder.CompanyBankSwiftCode}}
+                        </font>
+                    </font><br>
+
+                </td>
+                <td style="width:15%;"></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <table>
+        <tbody>
+            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        </tbody>
+    </table>
+
+    <table style="text-align:center; font-size:14px;">
+        <tbody>
+            <tr>
+                <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.obj.Conclusion1}}</font></font></td>
+            </tr>
+            <tr>
+                <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.obj.Conclusion2}}</font></font></td>
+            </tr>
+            <tr>
+                <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$ctrl.obj.Conclusion3}}</font></font></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

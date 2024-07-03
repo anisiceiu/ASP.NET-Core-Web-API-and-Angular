@@ -1,0 +1,171 @@
+﻿<div class="template-body">
+    <table style="width: 100%;">
+        <tr style="text-align: center;">
+            <td style="font-size:36px;" class="tbl-1Col-100"><b>영수증</b></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <td>&nbsp;</td>
+            <td class="right" style="font-size:16px; font-weight:bold;">{{$ctrl.CurrentDate | date:'yyyy-MM-dd'}}</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <td class="left text_medium">{{$ctrl.weborder.CompanyTelephoneNo}}</td>
+            <td class="">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="left text_medium">{{$ctrl.weborder.CompanyAddress1}}</td>
+            <td class="">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="left">{{$ctrl.weborder.CompanyAddress2}}</td>
+            <td class="">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="left">{{$ctrl.weborder.CompanyLocalName}}</td>
+            <td class="">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="left">{{$ctrl.weborder.CompanyGlobalName}}</td>
+            <td class="right text_medium">{{$ctrl.obj.Company}}</td>
+        </tr>
+
+        <tr>
+            <td class="left">&nbsp;</td>
+            <td class="right text_medium">{{$ctrl.obj.BranchCompany}}</td>
+        </tr>
+
+        <tr>
+            <td class="left">&nbsp;</td>
+            <td class="right" style="font-size:14px;">{{$ctrl.obj.UserAddress}}{{$ctrl.obj.UserPostCode}}</td>
+        </tr>
+        <tr>
+            <td class="left">&nbsp;</td>
+            <td class="right text_small">{{$ctrl.obj.Contact}}</td>
+        </tr>
+        <tr>
+            <td class="left">&nbsp;</td>
+            <td class="right text_small">{{$ctrl.obj.Email}}</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+
+    </table>
+
+
+    <table>
+        <tr>
+            <td class="text_small">Thank you for choosing trans-Pro. We are looking forward to serve you again!</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+
+    </table>
+
+
+
+
+    <table style="border-collapse: collapse;">
+        <tr style="border-top: 2px solid #000;">
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+    </table>
+
+    <table>
+        <tr>
+            <td class="text_medium">영수증</td>
+        </tr>
+    </table>
+
+    <table style="text-align:center;">
+        <tr>
+            <td class="text_medium"><p style="text-decoration:underline; margin:0">{{$ctrl.obj.Company}}</p></td>
+        </tr>
+        <tr>
+            <td style="padding:0 100px;">
+                <p style="font-size:40px; font-weight:bold; margin:0; border-bottom:3px solid #000;">{{$ctrl.weborder.CurrencyCode}} {{$ctrl.TotalEstimatedPrice |number:2}}</p>
+            </td>
+        </tr>
+    </table>
+
+    <table class="text_small" style="padding:0 100px;">
+        <tr>
+            <td style="padding-top:10px;">For Translation Fee.</td>
+        </tr>
+        <tr>
+            <td>{{$ctrl.details[0].Remarks}}</td>
+        </tr>
+        <tr>
+            <td>유료 날짜：{{$ctrl.weborder.PaymentDate}}</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+    </table>
+
+
+    <table class="text_small right" style="padding:0 100px;">
+        <tr>
+            <td>&nbsp;</td>
+            <td>{{$ctrl.obj.Company}}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>{{$ctrl.obj.BranchCompany}}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>{{$ctrl.obj.UserAddress}}{{$ctrl.obj.UserPostCode}}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>{{$ctrl.obj.Contact}}</td>
+        </tr>
+    </table>
+
+    <table ng-if="$ctrl.weborder.IsSeal">
+        <tr>
+            <td>&nbsp;</td>
+            <td><img style="float: right; margin-right: 120px; margin-top: -160px;" src="{{$ctrl.StampURL}}" alt="" /></td>
+        </tr>
+    </table>
+
+    <table style="width: 100%;">
+        <tbody>
+            <tr style="text-align: center;">
+                <td style="font-size:40px; letter-spacing: 3px; text-transform:uppercase;" class="tbl-1Col-100"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <table>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+    </table>
+</div>
+

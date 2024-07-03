@@ -1,0 +1,44 @@
+﻿<div class="panel panel-primary" style="max-width: 50%;">
+    <div class="panel-heading "
+         style="font-size:large">
+        {{'USERLIST' | translator}}
+    </div>
+    <div class="panel-body ">
+        <!--<div>
+            <alerts></alerts>
+        </div>-->
+        <fieldset>
+            <div class="form-group">
+                <div class="col-md-3 col-sm-3 input">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </div>
+                        <input class="form-control text-center" id="inputSearchTags" type="text" ng-change="vm.filter()"
+                               placeholder="{{'PLEASESEARCHUSER' | translator}}"
+                               ng-model="vm.filterValue" style="height:30px" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-5 input">
+                <button type="submit" class="btn btn-sm btn-primary" ng-click="vm.AddNewUser()" value="submit">
+                    <span class="glyphicon glyphicon-plus text-center"> {{'ADD' | translator}}</span>
+                </button>
+            </div>
+
+        </fieldset>
+        <br />
+        <fieldset>
+            <div class="table-responsive">
+                <div id="grid1" ui-grid="vm.gridOptions" class="grid" ui-grid-pagination="" ui-grid-selection ui-grid-exporter ui-grid-auto-resize></div>
+                <div class="text-center">
+                    <ul uib-pagination class="pagination-sm" total-items="vm.gridOptions.totalItems" items-per-page="vm.gridOptions.paginationPageSize" ng-model="vm.gridOptions.paginationCurrentPage"></ul>
+                </div>
+            </div>
+
+        </fieldset>
+
+    </div>
+</div>
+<div class="footerdescription"><strong>Designed By:</strong> Mr.Nayeem  <strong> Developed By:</strong> Mr.Tamal <strong> Manager:</strong></div>

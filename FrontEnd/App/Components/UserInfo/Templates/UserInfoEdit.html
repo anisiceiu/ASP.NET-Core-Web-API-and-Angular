@@ -1,0 +1,178 @@
+﻿<form class="form-horizontal" name="userForm" novalidate>
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="vm.cancel()">×</button>
+            <h4 class="modal-title" align="center">{{'USERINFORMATION'|translator}}</h4>
+        </div>
+        <div class="modal-body">
+
+
+            <div class="form-group" ng-class="{'has-error':userForm.inputfirstName.$invalid &&
+                                    userForm.inputfirstName.$dirty}">
+
+                <div class="col-md-2"><span>{{'FIRSTNAME' | translator}} </span></div>
+                <div class="col-md-6">
+                    <input id="inputfirstName" type="text" name="inputfirstName" class="form-control"
+                           ng-model="vm.entity.FirstName" required ng-maxlength="24" />
+                </div>
+                <span class="help-block has-error">
+                    <span ng-show="userForm.inputfirstName.$error.required">
+                        {{'FIRSTNAMEISREQUIRED' | translator}}.
+                    </span>
+                    <!--<span ng-show="userForm.inputfirstName.$error.minlength">
+                        First Name must be at least 4 characters in length.
+                    </span>-->
+                    <span ng-show="userForm.inputfirstName.$error.maxlength">
+                        {{'FIRSTNAMECANNOTEXCEED24CHARACTERSINLENGTH' | translator}}..
+                    </span>
+                </span>
+
+            </div>
+            <div class="form-group" ng-class="{'has-error':userForm.inputLastName.$invalid && userForm.inputfirstName.$dirty}">
+
+                <div class="col-md-2"><span>{{'LASTNAME' | translator}} </span></div>
+                <div class="col-md-6">
+                    <input type="text" name="inputLastName" class="form-control"
+                           ng-model="vm.entity.LastName" required ng-maxlength="24" />
+                </div>
+                <span class="help-block has-error">
+                    <span ng-show="userForm.inputLastName.$error.required">
+                        {{'LASTNAMEISREQUIRED' | translator}}.
+                    </span>
+                    <!--<span ng-show="userForm.inputLastName.$error.minlength">
+                        Last Name must be at least 4 characters in length.
+                    </span>-->
+                    <span ng-show="userForm.inputLastName.$error.maxlength">
+                        {{'LASTNAMECANNOTEXCEED24CHARACTERSINLENGTH' | translator}}.
+                    </span>
+                </span>
+
+            </div>
+            <div class="form-group" ng-class="{'has-error':userForm.userName.$invalid && userForm.userName.$dirty}">
+
+                <div class="col-md-2"><span>{{'USERNAME' | translator}} </span></div>
+                <div class="col-md-6">
+                    <input type="text" id="txtUserName" name="userName" class="form-control" username-available ng-model-options="{ updateOn: 'blur' }"
+                           ng-model="vm.entity.Username" required ng-maxlength="50"/>
+                    <!--ng-disabled="vm.entity.isDisabled"-->
+
+                </div>
+                <span class="help-block has-error">
+                    <span ng-show="userForm.userName.$error.required">
+                        {{'USERNAMEISREQUIRED' | translator}}.
+                    </span>
+                    <!--<span ng-show="userForm.userName.$error.minlength">
+                        User Name must be at least 3 characters in length.
+                    </span>-->
+                    <span ng-show="userForm.userName.$error.maxlength">
+                        {{'USERNAMECANNOTEXCEED10CHARACTERSINLENGTH' | translator}}.
+                    </span>
+                    <span ng-show="userForm.userName.$pending.usernameExists">
+                        {{'CHECKING' | translator}}....
+                    </span>
+                    <span ng-show="userForm.userName.$error.usernameExists">
+                        {{'USERNAMEEXISTSALREADY' | translator}}
+                    </span>
+                    <span ng-show="userForm.userName.$valid.usernameExists">
+                        {{'ACCEPTED' | translator}}
+                    </span>
+                </span>
+
+
+            </div>
+            <div class="form-group" ng-class="{'has-error':userForm.email.$invalid && userForm.email.$dirty}">
+
+                <div class="col-md-2">
+                    <span>{{'EMAIL' | translator}}</span>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="email" class="form-control" ng-pattern="/^[a-z0-9._+-]+@[a-z0-9-]+\.[a-z0-9-.]{1,6}$/" ng-change="vm.checkExistsEmail()"
+                           ng-model="vm.entity.Email" required />
+                    <p style="color:red;" ng-show="userForm.email.$error.pattern">{{'INVALIDEMAIL' | translator}}!</p>
+</div>
+                <span class="help-block has-error">
+                    <span ng-show="userForm.email.$error.required">
+                        {{'EMAILISREQUIRED' | translator}}.
+                    </span>
+                    <span ng-show="userForm.email.$error.email">
+                        {{'EMAILMUSTBEATLEAST4CHARACTERSINLENGTH' | translator}}.
+                    </span>
+
+                </span>
+
+            </div>
+            <div class="form-group" ng-class="{'has-error':userForm.password.$invalid && userForm.password.$dirty}">
+
+                <div class="col-md-2">
+                    <span>{{'PASSWORD' | translator}}</span>
+                </div>
+                <div class="col-md-6">
+                    <input type="password" name="password" class="form-control"
+                           ng-model="vm.entity.Password" ng-disabled="vm.entity.isDisabledPassword" required ng-minlength="6" ng-maxlength="100" />
+                </div>
+                <span class="help-block has-error">
+                    <span ng-show="userForm.password.$error.required">
+                        {{'PASSWORDISREQUIRED' | translator}}.
+                    </span>
+                    <span ng-show="userForm.password.$error.minlength">
+                        {{'PASSWORDMUSTBEATLEAST6CHARACTERSINLENGTH' | translator}}.
+                    </span>
+                    <span ng-show="userForm.password.$error.maxlength">
+                        {{'PASSWORDCANNOTEXCEED30CHARACTERSINLENGTH' | translator}}.
+                    </span>
+                </span>
+
+            </div>
+            <div class="form-group" ng-class="{'has-error':userForm.role.$invalid && userForm.role.$dirty}">
+                <div class="col-md-2">
+                    <span>{{'USERROLE' | translator}}</span>
+                </div>
+                <div class="col-sm-6">
+                    <ui-select name="role" ng-model="vm.entity.roles.selected" required theme="bootstrap" title=" {{'CHOOSEAROLE' | translator}}.">
+                        <ui-select-match placeholder="{{'SELECTORSEARCHAROLE' | translator}}...">{{$select.selected.Name}}</ui-select-match>
+                        <ui-select-choices repeat="role in vm.entity.roles | filter: $select.search">
+                            <span ng-bind-html="role.Name | highlight: $select.search"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+                <span class="help-block has-error">
+                    <span ng-show="userForm.role.$error.required">
+                        role is required{{'LASTNAME' | translator}}.
+                    </span>
+
+                </span>
+            </div>
+            <div class="form-group" ng-class="{'has-error':userForm.userType.$invalid && userForm.userType.$dirty}">
+                <div class="col-md-2">
+                    <span>{{'USERTYPE' | translator}}</span>
+                </div>
+                <div class="col-sm-6">
+                    <ui-select name="userType" ng-model="vm.entity.userTypes.selected" required theme="bootstrap" title="{{'CHOOSEAUSERTYPE' | translator}}.">
+                        <ui-select-match placeholder="{{'SELECTORSEARCHAUSERTYPE' | translator}}...">{{$select.selected.Name}}</ui-select-match>
+                        <ui-select-choices repeat="type in vm.entity.userTypes | filter: $select.search">
+                            <span ng-bind-html="type.Name | highlight: $select.search"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+                <span class="help-block has-error">
+                    <span ng-show="userForm.userType.$error.required">
+                        User type is required{{'LASTNAME' | translator}}.
+                    </span>
+
+                </span>
+            </div>
+            <div class="form-group">
+
+                <div class="col-md-2"><span>{{'ACTIVE' | translator}}</span></div>
+                <div class="col-md-6"><input type="checkbox" style="width:20px;height:20px;" value="true" ng-model="vm.entity.IsActive" /></div>
+
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button id="btnClose" type="button" class="btn btn-default" ng-click="vm.cancel()">{{'CLOSE' | translator}}</button>
+            <input type="button" id="btnSave" class="btn btn-success" ng-click="vm.save(userForm.$valid)" ng-disabled="userForm.$invalid" value="{{'SAVE' | translator}}" />
+        </div>
+    </div>
+</form>
+<div class="footerdescription"><strong>Designed By:</strong> Mr.Nayeem  <strong> Developed By:</strong> Mr.Tamal <strong> Manager:</strong>Mr.Mamun</div>
